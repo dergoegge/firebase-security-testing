@@ -30,6 +30,20 @@ function buildRequest(suite) {
 	}
 }
 
+function logDebugMessages(result, logging) {
+	if (result.debugMessages) {
+
+		result.debugMessages.forEach(msg => {
+			log(
+				console.error,
+				clc.redBright(`\t\t${msg}`),
+				logging
+			)
+		});
+
+	}
+}
+
 function assertResults(suite, results, options) {
 	let exitError = false;
 	const description = (index) => suite.testCases[index].description || '';
@@ -55,6 +69,7 @@ function assertResults(suite, results, options) {
 			)
 			exitError = true;
 		}
+		logDebugMessages(result, options.logging);
 	});
 
 	if (exitError) {
