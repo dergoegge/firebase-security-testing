@@ -25,7 +25,7 @@ firebase login:ci
 
 ## 
 ```javascript
-const { RuleTestSuite, validateRuleSuite } = require('firebase-rules-testing');
+const { RuleTestSuite, validateRuleSuite } = require('firebase-security-testing');
 
 // Initialise the rule test suite
 var storageRules = new RuleTestSuite({
