@@ -90,8 +90,6 @@ function TestCase(description, options) {
 		time: options.time || new Date().toISOString(),
 	}
 
-	console.log(this.request);
-
 	this.description = description;
 
 	this.shouldFail = () => {
