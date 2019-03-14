@@ -1,11 +1,12 @@
 {
-	"name": "firebase-rules-test",
+	"name": "firebase-rules-testing",
+	"homepage": "https://github.com/dergoegge/firebase-rules-testing",
 	"version": "0.0.1",
 	"description": "Testing framework for firestore and firebase storage security rules.",
 	"main": "index.js",
 	"scripts": {},
 	"author": "Niklas Gögge",
-	"license": "Apache-2.0",
+	"license": "SEE LICENSE IN LICENSE",
 	"dependencies": {
 		"cli-color": "^1.4.0",
 		"firebase-tools": "^6.5.0"
