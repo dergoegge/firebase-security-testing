@@ -98,7 +98,7 @@ function TestCase(description, options) {
 		this.expectation = "DENY";
 	}
 
-	this.shouldSucced = () => {
+	this.shouldSucceed = () => {
 		this.expectation = "ALLOW";
 	}
 
