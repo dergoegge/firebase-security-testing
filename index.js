@@ -82,13 +82,30 @@ function assertResults(suite, results, options) {
 	}
 }
 
+function assertIssues(res) {
+	if (res.body && res.body.issues) {
+		res.body.issues.forEach(issue => {
+			log(
+				console.error,
+				clc.redBright(`${issue.sourcePosition.fileName}:${issue.sourcePosition.line}:${issue.sourcePosition.column}:\n\t${issue.severity} ${issue.description}`),
+				true
+			)
+		});
+
+		return Promise.reject(new Error('Compile error'));
+	}
+
+	return res;
+}
+
 function validateRuleSuite(suite, options) {
 	return requireAuth({}).then(() =>
 		api.request(
 			"POST",
 			`/v1/projects/${suite.project}:test`,
 			buildRequest(suite)
-		)).then(res => {
+		)).then(assertIssues)
+		.then(res => {
 			return res.body.testResults;
 		}).then(results =>
 			assertResults(suite, results, options))
