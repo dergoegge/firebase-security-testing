@@ -11,7 +11,7 @@ I also opened a feature request with firebase, so maybe they will realease somet
 
 ## Install
 ```sh
-npm i firebase-rules-testing
+npm i firebase-security-testing
 ```
 
 ## Setup
