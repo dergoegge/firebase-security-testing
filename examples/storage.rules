@@ -1,0 +1,21 @@
+service firebase.storage {
+  match /b/{bucket}/o {
+    function requestHasID(userID) {
+      return request.auth != null && request.auth.uid == userID;
+    }
+
+    function imageConstraint() {
+      return request.resource.size <= 1 * 1024 * 1024 &&
+             request.resource.contentType == 'image/jpeg';
+    }
+
+    match /{userID} {
+
+      match /files/picture.jpg {
+        allow create, update: if requestHasID(userID) && imageConstraint();
+        allow read: if requestHasID(userID);
+      }
+
+    }
+  }
+}
