@@ -111,6 +111,7 @@ function validateRuleSuite(suite, options) {
 			assertResults(suite, results, options))
 		.catch(err => {
 			log(console.error, clc.red(err.message), true);
+			process.exit(1);
 		});
 }
 
