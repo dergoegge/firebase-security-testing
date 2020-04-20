@@ -93,7 +93,7 @@ function assertIssues(res) {
 	return res;
 }
 
-function validateRuleSuite(suite, options) {
+function validateRuleSuite(suite, options = {}) {
 	return requireAuth({}).then(() =>
 		api.request(
 			"POST",
