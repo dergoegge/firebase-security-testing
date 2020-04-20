@@ -53,7 +53,7 @@ storageRules.test('<description>'/* description for logging */, {
 }).shouldFail(); // this test case should fail
 
 // validate the tests
-validateRuleSuite(storageRules, { logging: true });
+validateRuleSuite(storageRules, { logging: true, exitOnFailure: true });
 
 ```
 
