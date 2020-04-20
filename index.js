@@ -73,12 +73,7 @@ function assertResults(suite, results, options) {
 	});
 
 	if (exitError) {
-		log(
-			console.error,
-			'Some tests failed',
-			options.logging
-		);
-		process.exit(1);
+		throw new Error('Some tests failed');
 	}
 }
 
@@ -107,11 +102,20 @@ function validateRuleSuite(suite, options) {
 		)).then(assertIssues)
 		.then(res => {
 			return res.body.testResults;
-		}).then(results =>
-			assertResults(suite, results, options))
-		.catch(err => {
-			log(console.error, clc.red(err.message), true);
-			process.exit(1);
+		}).then(results => {
+			try {
+				assertResults(suite, results, options);
+			} catch (err) {
+				return Promise.reject(err);
+			}
+		}).catch(err => {
+			log(console.error, clc.red(err.message), options.logging);
+
+			if (options.exitOnFailure) {
+				process.exit(1);
+			}
+
+			return Promise.reject(err);
 		});
 }
 
