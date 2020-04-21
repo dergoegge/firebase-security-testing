@@ -1,7 +1,7 @@
 {
 	"name": "firebase-security-testing",
 	"homepage": "https://github.com/dergoegge/firebase-security-testing",
-	"version": "0.0.7",
+	"version": "0.1.0",
 	"description": "Testing framework for firestore and firebase storage security rules.",
 	"main": "index.js",
 	"scripts": {},
