@@ -57,6 +57,8 @@ validateRuleSuite(storageRules, { logging: true, exitOnFailure: true });
 
 ```
 
+*The `exitOnFailure` option defaults to true.*
+
 ## Test case options
 
 The options for the test cases ("as far as i can tell") are the ones listed in the documentation for [firestore request](https://firebase.google.com/docs/reference/rules/rules.firestore.Request), [firestore resource](https://firebase.google.com/docs/reference/rules/rules.firestore.Resource), [storage request](https://firebase.google.com/docs/reference/security/storage/#request), [storage resource](https://firebase.google.com/docs/reference/security/storage/#resource)
