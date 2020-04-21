@@ -94,6 +94,10 @@ function assertIssues(res) {
 }
 
 function validateRuleSuite(suite, options = {}) {
+	if (typeof options.exitOnFailure === 'undefined') {
+		options.exitOnFailure = true;
+	}
+
 	return requireAuth({}).then(() =>
 		api.request(
 			"POST",
